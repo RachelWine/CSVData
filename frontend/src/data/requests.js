@@ -8,3 +8,7 @@ export const uploadCsvToDb = data =>
     data,
     config: { headers: { "Content-Type": "multipart/form-data" } }
   });
+
+export const getAllCountrysFromDb = () => axios.get(`${APIURL}/options`);
+
+export const getDataOfCountry = (country) => axios.get(`${APIURL}/browse/${country}`);
