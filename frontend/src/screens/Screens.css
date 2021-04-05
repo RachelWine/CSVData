@@ -1,0 +1,36 @@
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font: 1.6rem Helvetica;
+  height: 100vh;
+  margin: 0;
+}
+
+#root {
+  height: 100%;
+}
+
+.home-screen {
+  text-align:center;
+}
+
+.home-screen a {
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-screen a:hover {
+  color: purple
+}
+
+.file-box , .upload-box, .upload-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: wrap;
+  padding: 1rem;
+}
