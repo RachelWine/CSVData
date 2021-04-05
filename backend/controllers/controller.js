@@ -53,6 +53,33 @@ const uploadCsvToDb = async (req, res) => {
   stream.pipe(csvStream)
 }
 
+const getAllCountrysFromDb = () => {
+  return new Promise(function (resolve, reject) {
+    pool.query('SELECT DISTINCT "destinationCountry" FROM data', (error, results) => {
+      if (error) {
+        reject(error)
+      } else {
+        resolve(results.rows)
+      }
+    })
+  })
+}
+
+const getDataOfCountry = (req, res) => {
+  return new Promise(function (resolve, reject) {
+    const query = `SELECT * FROM data WHERE "destinationCountry" LIKE '%${req.country}%'`
+    pool.query(query, (error, results) => {
+      if (error) {
+        reject(error)
+      } else {
+        resolve(results.rows)
+      }
+    })
+  })
+}
+
 module.exports = {
-  uploadCsvToDb
+  uploadCsvToDb,
+  getDataOfCountry,
+  getAllCountrysFromDb
 }
